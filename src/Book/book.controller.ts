@@ -23,17 +23,17 @@ import { AuthGuard } from 'src/Auth/guard/auth.guard';
 export class BookController {
   constructor(private readonly bookService: BookService) {}
 
-  @Get('getBooks')
+  @Get('books')
   async getBooks() {
     return await this.bookService.getBooks();
   }
 
-  @Get('getBook/:id')
+  @Get('book/:id')
   async getBook(@Param('id') id: string) {
     return await this.bookService.getBook(id);
   }
 
-  @Post('createBook')
+  @Post('book')
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('file', { storage: storage }))
   async createBook(

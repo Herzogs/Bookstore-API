@@ -14,7 +14,7 @@ export class UserRegisterDto {
 
   @IsString()
   @IsEmail()
-  @Length(3, 15)
+  @Length(5, 30)
   email: string;
 
   @IsString()

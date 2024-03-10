@@ -17,7 +17,7 @@ import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('getAllUsers')
+  @Get('users')
   @UseGuards(AuthGuard)
   async getAllUsers() {
     try {
@@ -28,7 +28,7 @@ export class UserController {
   }
 
   @UseGuards(AuthGuard)
-  @Get('profile/:id')
+  @Get('user/:id')
   async profile(@Param('id') id: number) {
     try {
       return await this.userService.findOneById(id);
